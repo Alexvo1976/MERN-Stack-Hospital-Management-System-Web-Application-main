@@ -26,7 +26,7 @@ const Navbar = () => {
   const navigateTo = useNavigate();
 
   const goToLogin = () => {
-    navigateTo("/login");
+    navigateTo("/Register");
   };
 
   return (
@@ -48,13 +48,16 @@ const Navbar = () => {
             </Link>
           </div>
           {isAuthenticated ? (
-            <button className="logoutBtn btn" onClick={handleLogout}>
-              LOGOUT
-            </button>
+            // <button className="logoutBtn btn" onClick={handleLogout}>
+            //   LOGOUT
+            // </button>
+            <button className="logoutBtn btn" onClick={goToLogin}>Register</button>
+            
           ) : (
-            <button className="loginBtn btn" onClick={goToLogin}>
-              LOGIN
-            </button>
+            // <button className="loginBtn btn" onClick={goToLogin}>
+            //   LOGIN
+            // </button>
+ <button className="logoutBtn btn" onClick={goToLogin}>Register</button>
           )}
         </div>
         <div className="hamburger" onClick={() => setShow(!show)}>
