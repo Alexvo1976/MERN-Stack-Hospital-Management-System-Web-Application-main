@@ -2,10 +2,12 @@
 import { useParams } from "react-router-dom";
 import PatientForm from "../components/PatientForm"; // adjust if path differs
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const departmentFieldsMap = {
   pediatrics: ["name", "age", "guardianName", "vaccinationStatus"],
@@ -37,6 +39,7 @@ const DepartmentForm = () => {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
 
+  const formRef = useRef();
   const navigateTo = useNavigate();
 
   const handleRegistration = async (e) => {
@@ -69,19 +72,30 @@ const DepartmentForm = () => {
     }
   };
 
+  const handleGeneratePDF = async () => {
+    const input = formRef.current;
+    const canvas = await html2canvas(input);
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("patient-form.pdf");
+  };
+
   if (isAuthenticated) {
     return <Navigate to={"/"} />;
   }
 
   return (
-    <div className="container form-component register-form">
+    <div className="container form-component register-form" ref={formRef}>
       <h1>{displayName} Registration</h1>
       <p>Please Sign Up To Continue</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat culpa
         voluptas expedita itaque ex, totam ad quod error?
       </p>
-      {/* <PatientForm department={department} fields={customFields} /> */}
       <form onSubmit={handleRegistration}>
         <div>
           <input
@@ -155,6 +169,9 @@ const DepartmentForm = () => {
         </div>
         <div style={{ justifyContent: "center", alignItems: "center" }}>
           <button type="submit">Register</button>
+          <button type="button" onClick={handleGeneratePDF} style={{ marginLeft: 10 }}>
+            Download PDF
+          </button>
         </div>
       </form>
     </div>
