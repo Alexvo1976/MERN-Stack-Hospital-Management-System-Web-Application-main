@@ -7,12 +7,14 @@ const Hero = ({ title, imageUrl }) => {
         <div className="banner">
           <h1>{title}</h1>
           <p>
-            ZeeCare Medical Institute is a state-of-the-art facility dedicated
-            to providing comprehensive healthcare services with compassion and
-            expertise. Our team of skilled professionals is committed to
-            delivering personalized care tailored to each patient's needs. At
-            ZeeCare, we prioritize your well-being, ensuring a harmonious
-            journey towards optimal health and wellness.
+            CLUB DE LEONES 104 AÑOS DE SERVICIO A LA COMUNIDAD Somos “El Club de
+            Leones Quito Carita de Dios El Inca” líderes en el servicio
+            comunitario sin fines de lucro, satisfacemos con calidad y
+            excelencia los requerimientos de toda nuestra comunidad en el área
+            de salud. Brindamos un servicio voluntario para toda la comunidad,
+            esto en base a todo un equipo de profesionales comprometidos, a fin
+            de contribuir con la mejora en la calidad de vida. DONDE EXISTE UNA
+            NECESIDAD, RUGE UN LEON.
           </p>
         </div>
         <div className="banner">

@@ -41,10 +41,10 @@ const Navbar = () => {
               Home
             </Link>
             <Link to={"/appointment"} onClick={() => setShow(!show)}>
-              Appointment
+              Cita
             </Link>
             <Link to={"/about"} onClick={() => setShow(!show)}>
-              About Us
+              Acerca de Nosotros
             </Link>
           </div>
           {isAuthenticated ? (
@@ -57,7 +57,7 @@ const Navbar = () => {
             // <button className="loginBtn btn" onClick={goToLogin}>
             //   LOGIN
             // </button>
- <button className="logoutBtn btn" onClick={goToLogin}>Register</button>
+ <button className="logoutBtn btn" onClick={goToLogin}>Registracion</button>
           )}
         </div>
         <div className="hamburger" onClick={() => setShow(!show)}>

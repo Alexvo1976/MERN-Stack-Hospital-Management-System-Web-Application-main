@@ -52,7 +52,7 @@ const Departments = () => {
 
   return (
     <div className="container departments">
-      <h2>Departments</h2>
+      <h2>Departamentos</h2>
       <Carousel
         responsive={responsive}
         removeArrowOnDeviceType={["tablet", "mobile"]}

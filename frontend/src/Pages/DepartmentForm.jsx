@@ -159,13 +159,13 @@ const DepartmentForm = () => {
             flexDirection: "row",
           }}
         >
-          <p style={{ marginBottom: 0 }}>Already Registered?</p>
+          {/* <p style={{ marginBottom: 0 }}>Already Registered?</p>
           <Link
             to={"/signin"}
             style={{ textDecoration: "none", color: "#271776ca" }}
           >
             Login Now
-          </Link>
+          </Link> */}
         </div>
         <div style={{ justifyContent: "center", alignItems: "center" }}>
           <button type="submit">Register</button>
