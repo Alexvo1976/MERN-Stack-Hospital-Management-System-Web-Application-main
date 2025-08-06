@@ -110,7 +110,7 @@ const Register = () => {
               <option value="Male">Masculino</option>
               <option value="Female">Femenino</option>
             </select>
-                        <select value={gender} onChange={(e) => setGender(e.target.value)}>
+            <select value={gender} onChange={(e) => setGender(e.target.value)}>
               <option value="">Estado Civil</option>
               <option value="Male">Soltero</option>
               <option value="Female">Casado</option>
@@ -122,6 +122,12 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             /> */}
           </div>
+          <textarea
+            rows="10"
+            value={'Informacion del Paciente'}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address"
+          />
           <div
             style={{
               gap: "10px",

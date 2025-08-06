@@ -147,7 +147,7 @@ const DepartmentForm = () => {
           </select>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Otra Info"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -159,6 +159,12 @@ const DepartmentForm = () => {
             flexDirection: "row",
           }}
         >
+                              <textarea
+            rows="10"
+            value={displayName}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address"
+          />
           {/* <p style={{ marginBottom: 0 }}>Already Registered?</p>
           <Link
             to={"/signin"}
