@@ -5,17 +5,18 @@ import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
 
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
-  const { firstName, lastName, email, phone, nic, dob, gender, password } =
+  const { firstName, lastName, email, phone, ci, dob, gender, civil, message } =
     req.body;
   if (
     !firstName ||
     !lastName ||
     !email ||
     !phone ||
-    !nic ||
+    !ci ||
     !dob ||
     !gender ||
-    !password
+    !civil ||
+    !message
   ) {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
   }
@@ -30,10 +31,11 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     lastName,
     email,
     phone,
-    nic,
+    ci,
     dob,
     gender,
-    password,
+    civil,
+    message,
     role: "Patient",
   });
   generateToken(user, "User Registered!", 200, res);

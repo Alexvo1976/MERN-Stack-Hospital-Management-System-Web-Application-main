@@ -25,11 +25,11 @@ const userSchema = new mongoose.Schema({
     minLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
     maxLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
   },
-  nic: {
+  ci: {
     type: String,
-    required: [true, "NIC Is Required!"],
-    minLength: [13, "NIC Must Contain Only 13 Digits!"],
-    maxLength: [13, "NIC Must Contain Only 13 Digits!"],
+    required: [true, "CI Is Required!"],
+    minLength: [10, "CI Must Contain Only 13 Digits!"],
+    maxLength: [10, "CI Must Contain Only 13 Digits!"],
   },
   dob: {
     type: Date,
@@ -40,11 +40,15 @@ const userSchema = new mongoose.Schema({
     required: [true, "Gender Is Required!"],
     enum: ["Male", "Female"],
   },
-  password: {
+  civil: {
     type: String,
-    required: [true, "Password Is Required!"],
-    minLength: [8, "Password Must Contain At Least 8 Characters!"],
-    select: false,
+    required: [true, "Gender Is Required!"],
+    enum: ["Single", "Married"],
+  },
+  message: {
+    type: String,
+    required: true,
+    minLength: [10, "Message Must Contain At Least 10 Characters!"],
   },
   role: {
     type: String,

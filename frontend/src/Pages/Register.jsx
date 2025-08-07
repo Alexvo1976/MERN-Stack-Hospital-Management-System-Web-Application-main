@@ -14,7 +14,7 @@ const Register = () => {
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
-  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const navigateTo = useNavigate();
 
@@ -24,7 +24,7 @@ const Register = () => {
       await axios
         .post(
           "http://localhost:4000/api/v1/user/patient/register",
-          { firstName, lastName, email, phone, nic, dob, gender, password },
+          { firstName, lastName, email, phone, nic, dob, gender, message },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ const Register = () => {
           setNic("");
           setDob("");
           setGender("");
-          setPassword("");
+          setMessage("");
         });
     } catch (error) {
       toast.error(error.response.data.message);
@@ -123,10 +123,10 @@ const Register = () => {
             /> */}
           </div>
           <textarea
-            rows="10"
-            value={'Informacion del Paciente'}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Address"
+            rows={7}
+            placeholder="Message"
+            value={"Message"}
+            onChange={(e) => setMessage(e.target.value)}
           />
           <div
             style={{
